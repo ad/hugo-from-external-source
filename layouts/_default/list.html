@@ -1,12 +1,12 @@
 <div class="container py-4">
     <div class="row">
-        {{ range .Site.Pages}}
+        {{ range where .Pages "Type" "blog" }}
         <div>
             <h2>
-                <a href="/posts/{{ .Title | urlize }}">{{ .Title }}</a>
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
             </h2>
-            <p><span>{{.Date.Format "January 2, 2006"}}</span></p>
-            <p>{{ .Content | plainify | htmlUnescape }}</p>
+            <p><span>{{ .Date.Format "January 2, 2006" }}</span></p>
+            <p>{{ .Params.description | plainify | htmlUnescape }}</p>
         </div>
         {{ end }}
     </div>

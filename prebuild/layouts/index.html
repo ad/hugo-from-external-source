@@ -1,4 +1,4 @@
-{{ with getJSON "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fgohugo.io%2Fnews%2Findex.xml" }}
+{{ with getJSON "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fgithub.blog%2Ffeed%2F" }}
   {{ range .items }}
     {{ $string := print (jsonify .) .content }}
     {{ $filename := printf "posts/%s.md" (urlize .title) }}
