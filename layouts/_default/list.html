@@ -1,0 +1,13 @@
+<div class="container py-4">
+    <div class="row">
+        {{ range .Site.Pages}}
+        <div>
+            <h2>
+                <a href="/posts/{{ .Title | urlize }}">{{ .Title }}</a>
+            </h2>
+            <p><span>{{.Date.Format "January 2, 2006"}}</span></p>
+            <p>{{ .Content | plainify | htmlUnescape }}</p>
+        </div>
+        {{ end }}
+    </div>
+</div>
